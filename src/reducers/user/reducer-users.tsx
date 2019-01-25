@@ -33,7 +33,12 @@ export default function () {
         {
             'id': 7,
             'name': 'Arun CM',
-            'role': 'Software Developer'
+            'role': 'Sr. Software Developer'
+        },
+        {
+            'id': 8,
+            'name': 'Antony',
+            'role': 'Project Manger'
         }
 
     ];
