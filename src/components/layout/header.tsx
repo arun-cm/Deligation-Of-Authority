@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import { CommandBar, Persona, PersonaSize, SearchBox, Nav } from 'office-ui-fabric-react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 
 // const FabricNav = withRouter(({ history }) => (
@@ -53,7 +53,7 @@ class Header extends Component {
         initializeIcons(/* optional base url */);
     }
 
-    render() {
+    render(): JSX.Element {
         return (
             <div>
                 <CommandBar
@@ -79,7 +79,6 @@ class Header extends Component {
                 },
                 href: '/users',
                 //onClick: (e: any) => { e.preventDefault(); history.pushState({}, "", '/users') }
-
             },
             {
                 key: 'actionlog',

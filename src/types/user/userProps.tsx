@@ -13,5 +13,7 @@ export interface UserProps {
 export interface IUser {
     id: number,
     name: string,
-    role: string
+    email: string,
+    active: boolean,
+
 }

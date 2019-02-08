@@ -11,15 +11,22 @@ import Error from './components/layout/error';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import 'semantic-ui-css/semantic.min.css'
+import Navbar from './components/layout/navbar';
+import Footer from './components/layout/footer';
+
 
 
 class App extends Component {
   render() {
     return (
       <>
-        <Header />
-        <Body />
-        <footer></footer>
+        {/* <Header /> */}
+        <div className="container">
+          <Navbar />
+          <Body />
+        </div>
+        <Footer />
       </>
     );
   }

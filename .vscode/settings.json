@@ -12,7 +12,6 @@
     "src\\logo.svg": true,
     "src\\App.test.tsx": true,
     "node_modules": true,
-    ".vscode": true,
-    "public": true
+    ".vscode": true
   }
 }
