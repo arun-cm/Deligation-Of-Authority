@@ -1,9 +1,10 @@
 export default interface UsersProps {
-    users: any /// IUser[]
+    users: IUser[]
 }
 
 export interface UserDispatches {
-    user: any
+    selectedUser: any,
+    nextUsers: any
 }
 
 export interface UserProps {

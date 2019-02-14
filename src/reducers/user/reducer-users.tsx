@@ -5,61 +5,61 @@ export default function (state: any = null, action: any) {
     var users = [
         {
             "id": 1,
-            "name": "Clara",
+            "name": "Arun",
             "email": "gordon@barefoot.mz",
             "active": false
         },
         {
             "id": 2,
-            "name": "Marilyn",
+            "name": "Neeraj",
             "email": "gayle@guthrie.sk",
             "active": false
         },
         {
             "id": 3,
-            "name": "Clifford",
+            "name": "Aby",
             "email": "wesley@stuart.ci",
             "active": true
         },
         {
             "id": 4,
-            "name": "Marion",
+            "name": "Swathi",
             "email": "dianne@wiley.mk",
             "active": true
         },
         {
             "id": 5,
-            "name": "Dolores",
+            "name": "Bini",
             "email": "gene@jennings.sh",
             "active": false
         },
         {
             "id": 6,
-            "name": "Sherry",
+            "name": "Mithun",
             "email": "eugene@scarborough.ps",
             "active": true
         },
         {
             "id": 7,
-            "name": "Chris",
+            "name": "Antony",
             "email": "luis@may.mw",
             "active": false
         },
         {
             "id": 8,
-            "name": "Bonnie",
+            "name": "Anjumol",
             "email": "jennifer@gould.pa",
             "active": true
         },
         {
             "id": 9,
-            "name": "Marcia",
+            "name": "Craig",
             "email": "jeanne@robertson.eh",
             "active": false
         },
         {
             "id": 10,
-            "name": "Glenda",
+            "name": "Raghu",
             "email": "arnold@erickson.cv",
             "active": false
         },
@@ -306,11 +306,46 @@ export default function (state: any = null, action: any) {
 
     ];
 
+    // uitls should be in other file.
+    // what is the correct type ??????
+    // like extension method " return this ???? "
+    /////
+    //// or 
+    //-------------------------------------------
+    /////     sort(compareFn?: (a: T, b: T) => number): this;  ??
+    ///// 
+    //-------------------------------------------
+    //Array.prototype.sort = (left: any, right: any): any => {
+    //..................
+    //}
+
+    function sortUsers({ currentPage = 0, sortColumn = "Name", sortOrder = "ASC" }:
+        { currentPage: number, sortColumn: string, sortOrder: string }) {
+
+        var sortedUser = users;
+        if (sortOrder == "DESC") {
+            sortedUser = users.sort(
+                (left, right) => (
+                    sortColumn == "Name" ? (left.name > right.name) :
+                        sortColumn == "Email" ? (left.email > right.email) : (left.active > right.active)) ? -1 : 1
+            );
+        } else {
+            sortedUser = users.sort(
+                (left, right) => (
+                    sortColumn == "Name" ? (left.name > right.name) :
+                        sortColumn == "Email" ? (left.email > right.email) : (left.active > right.active)) ? 1 : -1
+            );
+        }
+
+        sortedUser = sortedUser.slice((pageSize * (currentPage - 1)), (pageSize * currentPage));
+        return sortedUser;
+    }
+
     switch (action.type) {
         case "NEXT_USERS":
-            return users.slice((pageSize * (action.payload - 1)), (pageSize * action.payload));
+            return sortUsers(action.payload);
         default:
-            return users.slice(0, pageSize);
+            return sortUsers({ currentPage: 1, sortColumn: "Name", sortOrder: "ASC" });
     }
 
 }

@@ -12,10 +12,14 @@
 }
 
 .doa-footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
   text-align: center;
+}
+
+.doa-shadow{
+  box-shadow: rgb(170, 170, 170) 0px 8px 32px !important;
 }

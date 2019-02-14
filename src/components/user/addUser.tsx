@@ -21,12 +21,19 @@ class AddUser extends Component {
 
     handleChange = (e: any, { value }: any) => this.setState({ value })
 
-    validateFields = (e: any) => {
+    handleValidate = (e: any) => {
+        debugger;
+        var x = this.refs.firstname;
+
         this.setState({ error: true })
     }
 
     handleUserAgremnt = (e: any) => {
         this.setState({ agreed: !this.state.agreed })
+    }
+
+    handleInputChange = (e: any) => {
+        console.log(e.target);
     }
 
     render() {
@@ -35,9 +42,9 @@ class AddUser extends Component {
         return (
             <Form>
                 <Form.Group widths='equal'>
-                    <Form.Input fluid label='First name' placeholder='First name' required error={this.state.error} />
-                    <Form.Input fluid label='Last name' placeholder='Last name' error={this.state.error} />
-                    <Form.Select fluid label='Gender' options={options} placeholder='Gender' />
+                    <Form.Input ref="firstname" fluid label='First name' placeholder='First name' required error={this.state.error} onChange={this.handleInputChange} />
+                    <Form.Input ref="lastname" fluid label='Last name' placeholder='Last name' required error={this.state.error} onChange={this.handleInputChange} />
+                    <Form.Select ref="gender" fluid label='Gender' options={options} placeholder='Gender' />
                 </Form.Group>
                 <Form.Group inline>
                     <label>Size</label>
@@ -60,11 +67,11 @@ class AddUser extends Component {
                         onChange={this.handleChange}
                     />
                 </Form.Group>
-                <Form.TextArea label='About' placeholder='Tell us more about you...' />
+                <Form.TextArea label='About' placeholder='Tell us more about you...' ref="about" />
                 <Form.Checkbox label='I agree to the Terms and Conditions' error={!this.state.agreed}
                     onChange={this.handleUserAgremnt} />
 
-                <Form.Button disabled={!this.state.agreed} onClick={this.validateFields}>Save </Form.Button>
+                <Form.Button disabled={!this.state.agreed} onClick={this.handleValidate}>Save </Form.Button>
             </Form>
         );
     }

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class Actionlog extends Component {
     render() {
         return (
-            <div>
-                <h2>This is action log</h2>
+            <div className="container">
+                <h2>FAQ</h2>
             </div>
         );
     }

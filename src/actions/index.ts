@@ -10,11 +10,19 @@ const selectedUser = (user: any): IAction => {
 };
 export default selectedUser;
 
-export const nextUsers = (currentPage: number): IAction => {
+/// USE ENUM for sort order.
+
+export const nextUsers = (currentPage: number, sortColumn: string, sortOrder: string): IAction => {
     console.log(' next users : ', currentPage);
+
     return {
         type: "NEXT_USERS",
-        payload: currentPage
+        payload: {
+            currentPage,
+            sortColumn,
+            sortOrder
+        }
+
     }
 };
 

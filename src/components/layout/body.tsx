@@ -13,8 +13,8 @@ class Body extends Component {
         return (
             <Switch>
                 <Route path="/users" component={Users} />
-                <Route path="/actionlog" component={Actionlog} />
-                <Route path="/adduser" component={AddUser} />
+                <Route path="/faq" component={Actionlog} />
+                <Route path="/request" component={AddUser} />
             </Switch>
         );
     }
